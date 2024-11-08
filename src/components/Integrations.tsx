@@ -4,18 +4,14 @@ import { Label } from "./ui/label";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -107,9 +103,21 @@ const Integrations: React.FC<IntegrationsProps> = ({ className, ...props }) => {
                         />
                       </div>
                       <div>
-                        <div></div>
-                        <div className="flex gap-1">
-                          {item.tag} <ShieldCheck size={16} />
+                        <div className="flex items-center gap-1">
+                          {item.name}{" "}
+                          <div className="flex items-center gap-1 whitespace-nowrap">
+                            {item.tags.map((tag, index) => (
+                              <p
+                                key={index}
+                                className="text-sm bg-zinc-100 text-muted-foreground rounded px-2"
+                              >
+                                {tag}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          {item.tag} <ShieldCheck size={16} color="green" />
                         </div>
                       </div>
                     </div>

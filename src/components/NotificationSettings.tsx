@@ -26,7 +26,7 @@ const FormSchema = z.object({
 
 type NotificationSettingsProps = {
   className?: string;
-} & React.ComponentProps<"div">;
+} & React.ComponentProps<"form">;
 
 const NotificationSettings: React.FC<NotificationSettingsProps> = ({
   className,
@@ -75,7 +75,11 @@ const NotificationSettings: React.FC<NotificationSettingsProps> = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn("w-full space-y-6", className)}
+        {...props}
+      >
         <h3 className="mb-4 text-lg font-medium">Email Notifications</h3>
         <div className="space-y-4">
           {data.map((item) => (
