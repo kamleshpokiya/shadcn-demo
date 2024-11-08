@@ -6,11 +6,9 @@ import {
   Blocks,
   Check,
   Globe,
-  Home,
   Keyboard,
   Link,
   Lock,
-  Menu,
   MessageCircle,
   Paintbrush,
   ScrollText,
@@ -46,6 +44,7 @@ import {
 import NotificationSettings from "@/components/NotificationSettings";
 import AuditLog from "@/components/AuditLog";
 import Integrations from "@/components/Integrations";
+import NewAccount from "@/components/NewAccount";
 
 const data = {
   nav: [
@@ -53,11 +52,11 @@ const data = {
       id: 0,
       name: "Notifications",
       icon: Bell,
-      compnent: NotificationSettings,
+      component: NotificationSettings,
     },
-    { id: 1, name: "Audit log", icon: ScrollText, compnent: AuditLog },
-    { id: 2, name: "Integrations", icon: Blocks, compnent: Integrations },
-    { id: 3, name: "Appearance", icon: Paintbrush },
+    { id: 1, name: "Audit log", icon: ScrollText, component: AuditLog },
+    { id: 2, name: "Integrations", icon: Blocks, component: Integrations },
+    { id: 3, name: "New Account", icon: Paintbrush, component: NewAccount },
     { id: 4, name: "Messages & media", icon: MessageCircle },
     { id: 5, name: "Language & region", icon: Globe },
     { id: 6, name: "Accessibility", icon: Keyboard },
@@ -74,7 +73,7 @@ export function SettingsDialog() {
   const [activeBarId, setActiveBarId] = React.useState(0); // Default to 0 for Notifications
 
   const ActiveComponent =
-    data.nav[activeBarId].compnent ||
+    data.nav[activeBarId].component ||
     (() => <div>No component found for {data.nav[activeBarId].name}</div>);
 
   return (

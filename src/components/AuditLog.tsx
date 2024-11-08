@@ -4,9 +4,7 @@ import { cn } from "@/lib/utils";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -119,7 +117,7 @@ const AuditLog: React.FC<AudioLogProps> = ({ className, ...props }) => {
     });
   };
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className={cn("flex h-full w-full flex-col", className)} {...props}>
       <div className="text-end my-4 flex justify-between">
         <Select>
           <SelectTrigger className="w-fit flex gap-2">
